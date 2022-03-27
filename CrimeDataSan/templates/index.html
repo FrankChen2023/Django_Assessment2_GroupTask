@@ -2,11 +2,12 @@
     <head><title>Crime in San Francisco</title></head>
     <body>
         <h1>Crime details in San Francisco between 01/01/2015 and 29/03/2015</h1>
+
         <p>Welcome to this web application.</p>
         <p>You can search the information of crime happened in San Francisco between 01/01/2015 and 29/03/2015.</p>
-        <p>Click <b><a href="{% url 'date_search' %}">date search</a></b> to find all cime events in a specific date.</p>
-        <p>Click <b><a href="{% url 'position_search' %}">position search</a></b> to find all cime events in a specific location.</p>
-        <p>Click <b><a href="{% url 'coordinates_search' %}">accurate coordinates search</a></b> to input a group of (longitude, latitude) to find the crime record around there.
-        <p>You could also click <b><a href="{% url 'total' %}">here</a></b> to check the total data table.</p>
+        <p>Click <b><a href={{ url_for('date_search') }}>date search</a></b> to find all cime events in a specific date.</p>
+        <p>Click <b><a href={{ url_for('position_search') }}>position search</a></b> to find all cime events in a specific location.</p>
+        <p>Click <b><a href={{ url_for('coordinates_search') }}>accurate coordinates search</a></b> to input a group of (longitude, latitude) to find the crime record around there.
+        <p>You could also click <b><a href={{ url_for('total') }}>here</a></b> to check the total data table.</p>
     </body>
 </html>
