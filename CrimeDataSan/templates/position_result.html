@@ -1,0 +1,17 @@
+<html>
+    <head><title>position search</title></head>
+    <body>
+        <h1>Position search</h1>
+            <p> ID | PdDistrict | Address | Date | Longitude | Latitude </p>
+            {% for row in rows %}
+            <p>
+                {{row["id"]}} |
+                <b>{{row["district"]}}</b> |
+                {{row["address"]}} |
+                {{row["date"]}} |
+                {{row["Longitude"]}} |
+                {{row["Latitude"]}} |
+            </p>
+            {% endfor %}
+    </body>
+</html>

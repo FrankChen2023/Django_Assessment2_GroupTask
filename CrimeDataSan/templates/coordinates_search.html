@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>accurate coordinates search</title>
+</head>
+    <body>
+        <h1>Accurate coordinates search</h1>
+        <form action = "/coordinates_search" method = "post">
+            <p>Enter the coordinates:</p>
+            <p>
+                longitude: <input type = "text" name = "longitude" placeholder="Between -122.5 to -122.3" >
+                latitude: <input type = "text" name = "latitude" placeholder="Between 37.7 to 37.8">
+                <input type = "submit" value = "Search" >
+            </p>
+            <p>*More digit of floating number as input leads to more accurate result, and vice versa.</p>
+        </form> 
+
+        <h1>Result:</h1>
+        <p> ID | PdDistrict | Address | Date | Longitude | Latitude </p>
+        {% for row in rows %}
+        <p>
+            {{row["id"]}} |
+            {{row["district"]}} |
+            {{row["address"]}} |
+            {{row["date"]}} |
+            <b>{{row["Longitude"]}}</b> |
+            <b>{{row["Latitude"]}}</b> |
+            {{ longi }} 
+        </p>
+        {% endfor %}
+    </body>
+</html>

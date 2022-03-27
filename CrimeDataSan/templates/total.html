@@ -1,0 +1,28 @@
+<html>
+    <head><title>total data</title></head>
+    <body>
+        <h1>Date Details</h1>
+            <p>ID | Date | Day of Week | PdDistrict | Address </p>
+            {% for row in rows_date %}
+            <p>
+                {{row["id"]}} |
+                {{row["date"]}} |
+                {{row["week"]}} |
+                {{row["district"]}} |
+                {{row["address"]}} |
+            </p>
+            {% endfor %}
+
+        <h1>position Details</h1>
+            <p>ID | PdDistrict | Address | Longitude | Latitude </p>
+            {% for row in rows_position %}
+            <p>
+                {{row["id"]}} |
+                {{row["district"]}} |
+                {{row["address"]}} |
+                {{row["Longitude"]}} |
+                {{row["Latitude"]}} |
+            </p>
+            {% endfor %}
+    </body>
+</html>
