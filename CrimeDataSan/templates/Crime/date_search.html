@@ -3,27 +3,18 @@
     <body>
         <h1>Date search</h1>
             <p><b>January:</b></p>
-            {% for d in range(1,10) %}
-            <b><a href="{% url ('date_result', date= '0' + d|string + '.01.2015') %}">0{{d}}/01/2015</a></b> | 
-            {% endfor %}
-            {% for d in range(10,32) %}
-            <b><a href="{% url ('date_result', date= d|string + '.01.2015') %}">{{d}}/01/2015</a></b> | 
+            {% for d in date_1 %}
+            <b><a href= "{% url 'Crime:date_result' date=d %}">{{d}}</a></b> | 
             {% endfor %}
 
             <p><b>February:</b></p>
-            {% for d in range(1,10) %}
-            <b><a href="{% url ('date_result', date= '0' + d|string + '.02.2015') %}">0{{d}}/02/2015</a></b> | 
-            {% endfor %}
-            {% for d in range(10,29) %}
-            <b><a href="{% url ('date_result', date= d|string + '.02.2015') %}">{{d}}/02/2015</a></b> | 
+            {% for d in date_2 %}
+            <b><a href="{% url 'Crime:date_result' date=d %}">{{d}}</a></b> | 
             {% endfor %}
 
             <p><b>March:</b></p>
-            {% for d in range(1,10) %}
-            <b><a href="{% url ('date_result', date= '0' + d|string + '.03.2015') %}">0{{d}}/03/2015</a></b> | 
-            {% endfor %}
-            {% for d in range(10,32) %}
-            <b><a href="{% url ('date_result', date= d|string + '.03.2015') %}">{{d}}/03/2015</a></b> | 
+            {% for d in date_3 %}
+            <b><a href="{% url 'Crime:date_result' date=d %}">{{d}}</a></b> | 
             {% endfor %}
     </body>
 </html>

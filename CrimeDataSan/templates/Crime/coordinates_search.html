@@ -4,7 +4,8 @@
 </head>
     <body>
         <h1>Accurate coordinates search</h1>
-        <form action = "/coordinates_search" method = "post">
+        <form action = "/coordinates_search/" method = "post">
+            {% csrf_token %}
             <p>Enter the coordinates:</p>
             <p>
                 longitude: <input type = "text" name = "longitude" placeholder="Between -122.5 to -122.3" >
@@ -16,15 +17,14 @@
 
         <h1>Result:</h1>
         <p> ID | PdDistrict | Address | Date | Longitude | Latitude </p>
-        {% for row in rows %}
+        {% for row in position_search_rows %}
         <p>
-            {{row["id"]}} |
-            {{row["district"]}} |
-            {{row["address"]}} |
-            {{row["date"]}} |
-            <b>{{row["Longitude"]}}</b> |
-            <b>{{row["Latitude"]}}</b> |
-            {{ longi }} 
+            {{row.id}} |
+            {{row.district}} |
+            {{row.address}} |
+            {{row.date}} |
+            <b>{{row.longitude}}</b> |
+            <b>{{row.latitude}}</b> |
         </p>
         {% endfor %}
     </body>

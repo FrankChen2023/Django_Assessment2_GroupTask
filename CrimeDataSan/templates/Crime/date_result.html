@@ -3,17 +3,19 @@
     <body>
         <h1>Date search</h1>
             <p>ID | Date | Day of Week | PdDistrict | Address </p>
-            {% if rows==[] %}
-            <p>No data in this date.</p>
-            {% endif %}
-            {% for row in rows %}
+
+            {% if Crime_date %}
+            {% for row in Crime_date %}
             <p>
-                {{row["id"]}} |
-                <b>{{row["date"]}}</b> |
-                {{row["week"]}} |
-                {{row["district"]}} |
-                {{row["address"]}} |
+                {{row.id}} |
+                <b>{{row.date}}</b> |
+                {{row.weekday}} |
+                {{row.district}} |
+                {{row.address}} |
             </p>
             {% endfor %}
+            {% else %}
+            <p>No data in this date.</p>
+            {% endif %}
     </body>
 </html>

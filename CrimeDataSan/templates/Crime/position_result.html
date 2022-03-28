@@ -3,14 +3,14 @@
     <body>
         <h1>Position search</h1>
             <p> ID | PdDistrict | Address | Date | Longitude | Latitude </p>
-            {% for row in rows %}
+            {% for row in Crime_position %}
             <p>
-                {{row["id"]}} |
-                <b>{{row["district"]}}</b> |
-                {{row["address"]}} |
-                {{row["date"]}} |
-                {{row["Longitude"]}} |
-                {{row["Latitude"]}} |
+                {{row.id}} |
+                <b>{{row.district}}</b> |
+                {{row.address}} |
+                {{row.date}} |
+                {{row.longitude}} |
+                {{row.latitude}} |
             </p>
             {% endfor %}
     </body>
