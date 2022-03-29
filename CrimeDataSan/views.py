@@ -25,7 +25,7 @@ def position_search(request):
     return render(request, 'Crime/position_search.html')
 
 def coordinates_search(request):
-    position_search_rows = None
+    position_search_rows = CrimePosition.objects.all()
     if request.method=="POST":
         longitude = str(request.POST.get('longitude',''))
         latitude = str(request.POST.get('latitude',''))
