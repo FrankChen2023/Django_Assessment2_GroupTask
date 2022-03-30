@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*m17qk*1u^_kyv2=c$o^iv**ess!6etcnu#i-kzovqhd6w#z3$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-assessment2-032022.herokuapp.com', 'nominalpress-annexlion-8000.codio-box.uk']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,6 +50,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 ROOT_URLCONF = 'mysite.urls'
 

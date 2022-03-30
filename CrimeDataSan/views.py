@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import CrimeDate, CrimePosition
+from CrimeDataSan.forms import SignUpForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -44,3 +47,19 @@ def total(request):
     Crime_total_date = CrimeDate.objects.all()
     Crime_total_position = CrimePosition.objects.all()
     return render(request, 'Crime/total.html', {'Crime_total_date' : Crime_total_date, 'Crime_total_position' : Crime_total_position})
+
+def signup(request):
+    form = SignUpForm(request.POST)
+    if form.is_valid():
+        user = form.save()
+        user.refresh_from_db()
+        user.customer.first_name = form.cleaned_data.get('first_name')
+        user.customer.last_name = form.cleaned_data.get('last_name')
+        user.customer.address = form.cleaned_data.get('address')
+        user.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password= password)
+        login(request, user)
+        return redirect('/')
+    return render(request, 'signup.html', {'form': form})

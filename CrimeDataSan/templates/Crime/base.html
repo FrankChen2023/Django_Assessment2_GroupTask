@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Crime Site</title>
+</head>
+<body>
+  <p>
+    <a href = "{% url 'Crime:index' %}">Home</a>
+    {% if user.is_authenticated %}
+    <a>You have logged in.</a> 
+    {% else %}
+    <a href = "{% url 'Crime:login' %}">Log In</a> 
+    {% endif %}
+  <p> 
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
