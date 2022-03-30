@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import CrimeDate, CrimePosition, Visitor
 from CrimeDataSan.forms import SignUpForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -63,4 +63,9 @@ def signup(request):
         login(request, user)
         return redirect('/')
     return render(request, 'signup.html', {'form': form})
+
+def logged_out(request):
+    logout(request)
+    return redirect('/')
+
 

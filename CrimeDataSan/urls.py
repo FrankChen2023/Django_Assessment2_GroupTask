@@ -14,4 +14,5 @@ urlpatterns = [
         path('position_result/<str:position>/', views.position_result, name='position_result'),
         path('total/', views.total, name='total'),
         path('signup/', views.signup, name='signup'),
+        path('logged_out/', views.logged_out, name='logout'),
 ]
