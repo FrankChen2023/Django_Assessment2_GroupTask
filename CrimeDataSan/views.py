@@ -61,11 +61,11 @@ def signup(request):
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password= password)
         login(request, user)
-        return redirect('/')
+        return redirect('index.html')
     return render(request, 'signup.html', {'form': form})
 
 def logout(request):
     logout(request)
-    return redirect('/')
+    return redirect('index.html')
 
 
