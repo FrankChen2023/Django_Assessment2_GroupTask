@@ -53,9 +53,9 @@ def signup(request):
     if form.is_valid():
         user = form.save()
         user.refresh_from_db()
-        user.customer.first_name = form.cleaned_data.get('first_name')
-        user.customer.last_name = form.cleaned_data.get('last_name')
-        user.customer.address = form.cleaned_data.get('address')
+        user.user.first_name = form.cleaned_data.get('first_name')
+        user.user.last_name = form.cleaned_data.get('last_name')
+        user.user.address = form.cleaned_data.get('address')
         user.save()
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
