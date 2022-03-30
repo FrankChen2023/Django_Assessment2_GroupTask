@@ -40,11 +40,8 @@ class Visitor(models.Model):
         db_table = 'visitor'
 
     @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
+    def update_profile_signal(sender, instance, created, **kwargs):
         if created:
             Visitor.objects.create(user=instance)
-    
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, **kwargs):
         instance.visitor.save()
     
