@@ -34,7 +34,7 @@ class Visitor(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.user.email}, {self.visitor.address}'
+        return self.email, self.address
 
     class Meta:
         db_table = 'visitor'
