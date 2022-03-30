@@ -28,23 +28,23 @@ class CrimePosition(models.Model):
     def __str__(self):
         return self.district, self.address, self.date, self.longitude, self.latitude
 
-class Users(models.Model):
+class Visitor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,)
     address = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.email}, {self.address}'
+        return f'{self.user.email}, {self.visitor.address}'
 
     class Meta:
-        db_table = 'user'
+        db_table = 'visitor'
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
-            Users.objects.create(user=instance)
+            Visitor.objects.create(user=instance)
     
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
-        instance.user.save()
+        instance.visitor.save()
     
