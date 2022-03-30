@@ -68,6 +68,4 @@ def log_out(request):
     logout(request)
     return redirect('logout.html')
 
-def log_in(request):
-    return redirect('Crime/index.html')
 
