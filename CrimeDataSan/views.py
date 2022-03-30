@@ -63,3 +63,4 @@ def signup(request):
         login(request, user)
         return redirect('/')
     return render(request, 'signup.html', {'form': form})
+
