@@ -14,5 +14,5 @@ urlpatterns = [
         path('position_result/<str:position>/', views.position_result, name='position_result'),
         path('total/', views.total, name='total'),
         path('signup/', views.signup, name='signup'),
-        path('logout/', views.logout, name='logout'),
+        path('logout/', views.log_out, name='logout'),
 ]
