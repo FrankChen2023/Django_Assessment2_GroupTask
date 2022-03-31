@@ -13,7 +13,7 @@
     {% endif %}
   {% endif %}
   <p>Please login, or <a href = "{% url 'Crime:signup' %}">Register</a> to see this page.</p>
-  <form method="post" action="{% url 'Crime:login' %}"> 
+  <form method="POST" action="{% url 'Crime:login' %}"> 
     {% csrf_token %}
     <p>
       {{ form.username.label_tag }}
