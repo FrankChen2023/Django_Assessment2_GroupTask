@@ -66,6 +66,6 @@ def signup(request):
 
 def log_out(request):
     logout(request)
-    return redirect('logout.html')
+    return redirect('/')
 
 
