@@ -4,17 +4,21 @@
     <head><title>position search</title></head>
     <body>
         <h1>Position search</h1>
-            <p> ID | PdDistrict | Address | Date | Longitude | Latitude </p>
-            {% for row in Crime_position %}
-            <p>
-                {{row.id}} |
-                <b>{{row.district}}</b> |
-                {{row.address}} |
-                {{row.date}} |
-                {{row.longitude}} |
-                {{row.latitude}} |
-            </p>
-            {% endfor %}
+
+        <table border="1" style="text-align:center" width='60%'>
+        <tr><th>ID</th><th>PdDistrict</th><th>Address</th><th>Date</th><th>Longitude</th><th>Latitude</th>
+        {% for row in Crime_position %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td><b>{{row.district}}</b></td>
+            <td>{{row.address}}</td>
+            <td>{{row.date}}</td>
+            <td>{{row.longitude}}</td>
+            <td>{{row.latitude}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
     </body>
 </html>
 {% endblock %}

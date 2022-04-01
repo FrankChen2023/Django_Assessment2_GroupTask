@@ -4,21 +4,25 @@
     <head><title>date search</title></head>
     <body>
         <h1>Date search</h1>
-            <p>ID | Date | Day of Week | PdDistrict | Address </p>
 
-            {% if Crime_date %}
-            {% for row in Crime_date %}
-            <p>
-                {{row.id}} |
-                <b>{{row.date}}</b> |
-                {{row.weekday}} |
-                {{row.district}} |
-                {{row.address}} |
-            </p>
-            {% endfor %}
-            {% else %}
-            <p>No data in this date.</p>
-            {% endif %}
+        <table border="1" style="text-align:center" width='60%'>
+        <tr><th>ID</th><th>Date</th><th>Day of Week</th><th>PdDistrict</th><th>Address</th>
+        {% if Crime_date %}
+        {% for row in Crime_date %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td><b>{{row.date}}</b></td>
+            <td>{{row.weekday}}</td>
+            <td>{{row.district}}</td>
+            <td>{{row.address}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        </table>
+        <p>No data in this date.</p>
+        {% endif %}
+        
     </body>
 </html>
 {% endblock %}

@@ -4,29 +4,35 @@
     <head><title>total data</title></head>
     <body>
         <h1>Date Details</h1>
-            <p>ID | Date | Day of Week | PdDistrict | Address </p>
-            {% for row in Crime_total_date %}
-            <p>
-                {{row.id}} |
-                <b>{{row.date}}</b> |
-                {{row.weekday}} |
-                {{row.district}} |
-                {{row.address}} |
-            </p>
-            {% endfor %}
+        <table border="1" style="text-align:center" width='60%'>
+        <tr><th>ID</th><th>Date</th><th>Day of Week</th><th>PdDistrict</th><th>Address</th>
+        {% if Crime_date %}
+        {% for row in Crime_date %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td><b>{{row.date}}</b></td>
+            <td>{{row.weekday}}</td>
+            <td>{{row.district}}</td>
+            <td>{{row.address}}</td>
+        </tr>
+        {% endfor %}
+        </table>
 
         <h1>position Details</h1>
-            <p>ID | PdDistrict | Address | Longitude | Latitude </p>
-            {% for row in Crime_total_position %}
-            <p>
-                {{row.id}} |
-                <b>{{row.district}}</b> |
-                {{row.address}} |
-                {{row.date}} |
-                {{row.longitude}} |
-                {{row.latitude}} |
-            </p>
-            {% endfor %}
+        <table border="1" style="text-align:center" width='60%'>
+        <tr><th>ID</th><th>PdDistrict</th><th>Address</th><th>Date</th><th>Longitude</th><th>Latitude</th>
+        {% for row in Crime_position %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td><b>{{row.district}}</b></td>
+            <td>{{row.address}}</td>
+            <td>{{row.date}}</td>
+            <td>{{row.longitude}}</td>
+            <td>{{row.latitude}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        
     </body>
 </html>
 {% endblock %}
