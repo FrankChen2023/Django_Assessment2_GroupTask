@@ -18,17 +18,19 @@
         </form> 
 
         <h1>Result:</h1>
-        <p> ID | PdDistrict | Address | Date | Longitude | Latitude </p>
+        <table border="1">
+        <tr><th>ID</th><th>PdDistrict </th><th>Address</th><th>Date</th><th>Longitude</th><th>Latitude</th></tr>
         {% for row in position_search_rows %}
-        <p>
-            {{row.id}} |
-            {{row.district}} |
-            {{row.address}} |
-            {{row.date}} |
-            <b>{{row.longitude}}</b> |
-            <b>{{row.latitude}}</b> |
-        </p>
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.district}}</td>
+            <td>{{row.address}}</td>
+            <td>{{row.date}}</td>
+            <td><b>{{row.longitude}}</b></td>
+            <td><b>{{row.latitude}}</b></td>
+        </tr>
         {% endfor %}
+        </table>
     </body>
 </html>
 {% endblock %}
