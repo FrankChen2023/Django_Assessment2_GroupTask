@@ -13,13 +13,13 @@ We created two linked tables basing on the data source: one is the detail inform
 Our application offers 4 functions to search and check the data, 1 function allowing users to edit, and one registration and login function.  
 #### 1.Index Page (index.html, views.index)  
 This application gives 7 buttons (links) in the index page.   
-Home: allows you return to index page whenever you want.  
-Login: skips to a login and registration page.  
-Date search: search specific data in a certain date.  
-Position search: search specific data in a certain position.  
-Accurate coordinates search: allows you enter a couple of floating numbers including longitude and latitude, and find the matching data from the database.  
-Total data table check: jumps to the database, including two tables.  
-Data edit (requires login): allows you to add, edit, or delete data as you want.  
+**Home:** allows you return to index page whenever you want.  
+**Login:** skips to a login and registration page.  
+**Date search:** search specific data in a certain date.  
+**Position search:** search specific data in a certain position.  
+**Accurate coordinates search:** allows you enter a couple of floating numbers including longitude and latitude, and find the matching data from the database.  
+**Total data table check:** jumps to the database, including two tables.  
+**Data edit (requires login):** allows you to add, edit, or delete data as you want.  
 #### 2.Login and Registration Page (login.html, logout.html, signup.html, models.Visitor, form.py, views.signup, views.log_out):  
 Login and Registration system support users to create personal account, which allows them to use more function.(Especially, give them rights to edit the database). Every account should consist of a username and a password, and the form can be seen in the form.py file. The login and registration is basing on the source tool in Django.  
 #### 3.Date and Position Search (date_search.html, date_result.html, position_search.html, position_result.html, views.position_search, views. position_result, views.date_search, views.date_result):  
