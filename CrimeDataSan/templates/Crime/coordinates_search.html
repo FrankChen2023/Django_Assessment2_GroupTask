@@ -10,8 +10,8 @@
             {% csrf_token %}
             <p>Enter the coordinates:</p>
             <p>
-                longitude: <input type = "text" name = "longitude" placeholder="Between -122.5 to -122.3" >
-                latitude: <input type = "text" name = "latitude" placeholder="Between 37.7 to 37.8">
+                longitude: <input type = "float" name = "longitude" placeholder="Between -122.5 to -122.3" >
+                latitude: <input type = "float" name = "latitude" placeholder="Between 37.7 to 37.8">
                 <input type = "submit" value = "Search" >
             </p>
             <p>*More digit of floating number as input leads to more accurate result, and vice versa.</p>

@@ -48,6 +48,33 @@ def total(request):
     Crime_total_position = CrimePosition.objects.all()
     return render(request, 'Crime/total.html', {'Crime_total_date' : Crime_total_date, 'Crime_total_position' : Crime_total_position})
 
+@login_required
+def data_edit(request):
+    row_date = Null
+    row_position = Null
+    if request.method=="POST" and 'id' in request.POST::
+        id = str(request.POST.get('id',''))
+        row_date = CrimeDate.objects.filter(id=id)
+        row_position = CrimePosition.objects.filter(id=id)
+    if request.method=="POST" and 'Id' in request.POST::
+        Id = str(request.POST.get('Id',''))
+        Date = str(request.POST.get('Date',''))
+        DayOfWeek = str(request.POST.get('DayOfWeek',''))
+        PdDistrict = str(request.POST.get('PdDistrict',''))
+        Address = str(request.POST.get('Address',''))
+        Longitude = str(request.POST.get('Longitude',''))
+        Latitude = str(request.POST.get('Latitude',''))
+        row_date = CrimeDate.objects.filter(id=Id)
+        row_position = CrimePosition.objects.filter(id=Id)
+        row_date.id = Id
+        row_date.date = Date
+        row_date.weekday = DayOfWeek
+        row_position.district = PdDistrict
+        row_position.address = Address
+        row_position.longitude = Longitude
+        row_position.latitude = Latitude
+    return render(request, 'Crime/data_edit.html', {'row_date' : row_date, 'row_position' : row_position})
+
 def signup(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
@@ -64,6 +91,5 @@ def signup(request):
 def log_out(request):
     logout(request)
     return redirect('/')
-
 
 

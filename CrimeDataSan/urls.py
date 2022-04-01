@@ -12,6 +12,7 @@ urlpatterns = [
         path('coordinates_search/', views.coordinates_search, name='coordinates_search'),
         path('date_result/<str:date>/', views.date_result, name='date_result'),
         path('position_result/<str:position>/', views.position_result, name='position_result'),
+        path('data_edit/', views.data_edit, name='data_edit'),
         path('total/', views.total, name='total'),
         path('signup/', views.signup, name='signup'),
         path('logout/', views.log_out, name='logout'),
