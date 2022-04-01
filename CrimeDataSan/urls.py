@@ -5,7 +5,7 @@ from . import views
 app_name = 'Crime'
 
 urlpatterns = [
-        path('', views.index, name='index'),
+        path('', views.index, name='index'),   
         path('accounts/', include('django.contrib.auth.urls')),
         path('date_search/', views.date_search, name='date_search'),
         path('position_search/', views.position_search, name='position_search'),

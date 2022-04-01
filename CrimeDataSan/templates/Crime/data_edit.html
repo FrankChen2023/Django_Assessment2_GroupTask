@@ -18,22 +18,23 @@
         </form> 
 
         <h2>Result:</h2>
-        <p> ID | Date | Day of Week | PdDistrict | Address | Longitude | Latitude </p>
-        <p>
-            {% if row_date %}
-            {{row_date.id}} |
-            {{row_date.date}} |
-            {{row_date.weekday}} |
-            {{row_position.district}} |
-            {{row_position.address}} |
-            {{row_position.longitude}} |
-            {{row_position.latitude}} |
+        <table border="1">
+        <tr><th>ID</th><th>Date</th><th>Day of Week</th><th>PdDistrict </th><th>Address</th><th>Longitude</th><th>Latitude</th></tr>
+        {% if row_date %}
+        <tr>
+            <td>{{row_date.id}}</td>
+            <td>{{row_date.date}}</td>
+            <td>{{row_date.weekday}}</td>
+            <td>{{row_position.district}}</td>
+            <td>{{row_position.address}}</td>
+            <td>{{row_position.longitude}}</td>
+            <td>{{row_position.latitude}}</td>
+        </tr>
+        </table>
 
-            {% else %}
-            No data matches, maybe change another id number?
-
-            {% endif %}
-        </p>
+        {% else %}
+        No data matches, maybe change another id number?
+        {% endif %}
 
         <h2>Delete:</h2>
         <form action = "/data_edit/" method = "post">
