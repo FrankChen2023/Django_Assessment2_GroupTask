@@ -56,7 +56,7 @@ def data_edit(request):
         id = str(request.POST.get('id',''))
         row_date = CrimeDate.objects.filter(id=id)
         row_position = CrimePosition.objects.filter(id=id)
-    if request.method=="POST" and 'Id' in request.POST::
+    if request.method=="POST" and 'Id' in request.POST:
         Id = str(request.POST.get('Id',''))
         Date = str(request.POST.get('Date',''))
         DayOfWeek = str(request.POST.get('DayOfWeek',''))
