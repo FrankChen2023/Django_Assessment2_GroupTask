@@ -6,44 +6,21 @@
 </head>
     <body>
         <h1>User Data Edit</h1>
-        <p>*This page is availible after login.</p>
-        <p>*You could search a row of data with certain id number.</p>
-        <p>*You could also edit the data, and use the searching system to check your change.</p>
+        <p>*First, search a row of data you want. Then, you could edit the data (add, modify or delete).</p>
 
         <h2>Search:</h2>
         <form action = "/data_edit/" method = "post">
             {% csrf_token %}
-            <p>Enter a id number:</p>
-            <p>
-                <input type = "integer" name = "id" placeholder="Between 1 to 20035" >
-                <input type = "submit" value = "Search" >
-            </p>
-            <p>*The data source consists of 20035 rows of data, but you can add more.</p>
+            <p>Enter a id number:
+            <input type = "integer" name = "id1" placeholder="Between 1 to 20035" >
+            <input type = "submit" value = "Search" >  
+            </p>  
         </form> 
 
-        <h2>Edit:</h2>
-        <form action = "/data_edit/" method = "post">
-            {% csrf_token %}
-            <p>Enter a row of data:</p>
-            <p>
-                ID: <input type = "integer" name = "Id" placeholder="Integer number only" >
-                Date: <input type = "text" name = "Date" placeholder="xx.xx.xxxx like 01.01.2022" >
-                Day of Week: <input type = "text" name = "DayOfWeek" placeholder="Sunday to Monday" >
-                PdDistrict: <input type = "text" name = "PdDistrict" placeholder="Text only" >
-                Address: <input type = "text" name = "Address" placeholder="Text only" >
-                Longitude: <input type = "float" name = "Longitude" placeholder="Number only" >
-                Latitude: <input type = "float" name = "Latitude" placeholder="Number only" >
-                <input type = "submit" value = "submit" >
-            </p>
-            <p>*Only ID number is neccessary.</p>
-            <p>*If you enter a outindex ID number, the system will create the row.</p>
-            <p>*If you keep some frames empty, then the values will not change.</p>
-        </form> 
-
-        <h1>Result:</h1>
+        <h2>Result:</h2>
         <p> ID | Date | Day of Week | PdDistrict | Address | Longitude | Latitude </p>
         <p>
-            {% if row_date.id %}
+            {% if row_date %}
             {{row_date.id}} |
             {{row_date.date}} |
             {{row_date.weekday}} |
@@ -54,7 +31,39 @@
 
             {% else %}
             No data matches, maybe change another id number?
+
+            {% endif %}
         </p>
+
+        <h2>Delete:</h2>
+        <form action = "/data_edit/" method = "post">
+            {% csrf_token %}
+            <p>Enter a id number then this row will be deleted:
+            <input type = "integer" name = "id2" placeholder="Delete this row" >
+            <input type = "submit" value = "Delete" >
+            </p>
+        </form> 
+
+        <h2>Edit:</h2>
+        <form action = "/data_edit/" method = "post">
+            {% csrf_token %}
+            <p>Enter a row of data:</p>
+            <p>
+                ID (Required): <input type = "integer" name = "Id" placeholder="Integer number only" >
+                Date: <input type = "text" name = "Date" placeholder="xx.xx.xxxx like 01.01.2022" >
+                Day of Week: <input type = "text" name = "DayOfWeek" placeholder="Sunday to Monday" >
+                PdDistrict: <input type = "text" name = "PdDistrict" placeholder="Text only" >
+            </p>
+            <p>
+                Address: <input type = "text" name = "Address" placeholder="Text only" >
+                Longitude: <input type = "float" name = "Longitude" placeholder="Number only" >
+                Latitude: <input type = "float" name = "Latitude" placeholder="Number only" >
+                <input type = "submit" value = "submit" >
+            </p>
+            <p>*Only ID number is neccessary.</p>
+            <p>*If you enter a outindex ID number, the system will create the row.</p>
+            <p>*If you keep some frames empty, then the values will not change.</p>
+        </form> 
     </body>
 </html>
 

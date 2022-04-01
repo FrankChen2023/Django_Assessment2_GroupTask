@@ -50,29 +50,48 @@ def total(request):
 
 @login_required
 def data_edit(request):
-    row_date = Null
-    row_position = Null
-    if request.method=="POST" and 'id' in request.POST:
-        id = str(request.POST.get('id',''))
-        row_date = CrimeDate.objects.filter(id=id)
-        row_position = CrimePosition.objects.filter(id=id)
+    row_date = None
+    row_position = None
+    if request.method=="POST" and 'id1' in request.POST:
+        id = request.POST.get('id1','')
+        try:
+            row_date = CrimeDate.objects.get(id=id)
+            row_position = CrimePosition.objects.get(id=id)
+        except:
+            pass
+    if request.method=="POST" and 'id2' in request.POST:
+        id = request.POST.get('id2','')
+        try:
+            row_date = CrimeDate.objects.get(id=id).delete()
+            row_position = CrimePosition.objects.get(id=id).delete()
+        except:
+            pass
     if request.method=="POST" and 'Id' in request.POST:
-        Id = str(request.POST.get('Id',''))
+        Id = request.POST.get('Id','')
         Date = str(request.POST.get('Date',''))
         DayOfWeek = str(request.POST.get('DayOfWeek',''))
         PdDistrict = str(request.POST.get('PdDistrict',''))
         Address = str(request.POST.get('Address',''))
         Longitude = str(request.POST.get('Longitude',''))
         Latitude = str(request.POST.get('Latitude',''))
-        row_date = CrimeDate.objects.filter(id=Id)
-        row_position = CrimePosition.objects.filter(id=Id)
-        row_date.id = Id
-        row_date.date = Date
-        row_date.weekday = DayOfWeek
-        row_position.district = PdDistrict
-        row_position.address = Address
-        row_position.longitude = Longitude
-        row_position.latitude = Latitude
+        try:
+            row_date = CrimeDate.objects.get(id=Id)
+            row_position = CrimePosition.objects.get(id=Id)
+            row_date.date = row_position.date = [Date, row_date.date][Date=='']
+            row_date.weekday = [DayOfWeek, row_date.weekday][DayOfWeek=='']
+            row_date.district = row_position.district = [PdDistrict, row_position.district][PdDistrict=='']
+            row_date.address = row_position.address = [Address, row_position.address][Address=='']
+            row_position.longitude = [Longitude, row_position.longitude][Longitude=='']
+            row_position.latitude = [Latitude, row_position.latitude][Latitude=='']
+            CrimeDate.objects.filter(id=Id).update(date=row_date.date, weekday=row_date.weekday, 
+            district=row_date.district, address=row_date.address)
+            CrimePosition.objects.filter(id=Id).update(date=row_position.date,  district=row_position.district, 
+            address=row_position.address, longitude=row_position.longitude, latitude=row_position.latitude)
+        except:
+            CrimeDate.objects.create(id=Id, date=Date, weekday=DayOfWeek, district=PdDistrict, 
+            address=Address).save()
+            CrimePosition.objects.create(id=Id, date=Date, district=PdDistrict, address=Address, 
+            longitude=Longitude, latitude=Latitude).save()
     return render(request, 'Crime/data_edit.html', {'row_date' : row_date, 'row_position' : row_position})
 
 def signup(request):
