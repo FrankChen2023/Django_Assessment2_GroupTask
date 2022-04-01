@@ -1,7 +1,14 @@
 ## Django_Assessment2_GroupTask
 
-### Development logs:
-
+### Development logs:  
+**From 26th March to 27th March Complete Version:94c9524** Build website, database, data parse, basic functions design, websites page design and ...  
+**28th March Complete Version:a79bbed** A running version (prototype) finishes, functions including date search, position search, coordinates search, and total data check.  
+**29th March Complete Version:fffadf6** A modification about performance.  
+**From 30th March to 31th March Complete Version:9f224a5** A registration and login system added.   
+**31th March Complete Version:9a3c2b6** Testing registration and login system, and pass successfully.  
+**1st April Complete Version:cce3b6b** Data edit function added and tested, pass successfully.  
+**1st April Complete Version:ba45767** Testing each function and templates pages. The whole design finishes.  
+**1st April Complete Version:42a41eb** Add teble pattern for better performance.  
 
 ### What is our design?  
 We design a website application basing on Django, which allows users to check, search, edit data flexibly.  
