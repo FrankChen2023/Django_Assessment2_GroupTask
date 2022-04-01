@@ -52,7 +52,7 @@ def total(request):
 def data_edit(request):
     row_date = Null
     row_position = Null
-    if request.method=="POST" and 'id' in request.POST::
+    if request.method=="POST" and 'id' in request.POST:
         id = str(request.POST.get('id',''))
         row_date = CrimeDate.objects.filter(id=id)
         row_position = CrimePosition.objects.filter(id=id)
