@@ -6,7 +6,6 @@
         <h1>Date Details</h1>
         <table border="1" style="text-align:center" width='60%'>
         <tr><th>ID</th><th>Date</th><th>Day of Week</th><th>PdDistrict</th><th>Address</th>
-        {% if Crime_date %}
         {% for row in Crime_date %}
         <tr>
             <td>{{row.id}}</td>
@@ -32,7 +31,7 @@
         </tr>
         {% endfor %}
         </table>
-        
+
     </body>
 </html>
 {% endblock %}
