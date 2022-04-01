@@ -1,4 +1,6 @@
-# Django_Assessment2_GroupTask
+## Django_Assessment2_GroupTask
+
+### Development logs:
 
 
 ### What is our design?  
