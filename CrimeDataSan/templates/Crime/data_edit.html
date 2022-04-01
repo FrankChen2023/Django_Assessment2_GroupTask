@@ -29,11 +29,14 @@
             <td>{{row_position.address}}</td>
             <td>{{row_position.longitude}}</td>
             <td>{{row_position.latitude}}</td>
-        {% else %}
-        No data matches, maybe change another id number?
-        {% endif %}
         </tr>
         </table>
+        {% else %}
+        No data matches, maybe change another id number?
+        </tr>
+        </table>
+        {% endif %}
+
 
         <h2>Delete:</h2>
         <form action = "/data_edit/" method = "post">
