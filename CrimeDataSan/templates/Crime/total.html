@@ -5,8 +5,8 @@
     <body>
         <h1>Date Details</h1>
         <table border="1" style="text-align:center" width='60%'>
-        <tr><th>ID</th><th>Date</th><th>Day of Week</th><th>PdDistrict</th><th>Address</th>
-        {% for row in Crime_date %}
+        <tr><th>ID</th><th>Date</th><th>Day of Week</th><th>PdDistrict</th><th>Address</th>5
+        {% for row in Crime_total_date %}
         <tr>
             <td>{{row.id}}</td>
             <td><b>{{row.date}}</b></td>
@@ -20,7 +20,7 @@
         <h1>position Details</h1>
         <table border="1" style="text-align:center" width='60%'>
         <tr><th>ID</th><th>PdDistrict</th><th>Address</th><th>Date</th><th>Longitude</th><th>Latitude</th>
-        {% for row in Crime_position %}
+        {% for row in Crime_total_position %}
         <tr>
             <td>{{row.id}}</td>
             <td><b>{{row.district}}</b></td>
