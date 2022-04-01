@@ -18,14 +18,11 @@ Position search: search specific data in a certain position.
 Accurate coordinates search: allows you enter a couple of floating numbers including longitude and latitude, and find the matching data from the database.  
 Total data table check: jumps to the database, including two tables.  
 Data edit (requires login): allows you to add, edit, or delete data as you want.  
-#### 2.Login and Registration Page   
-(login.html, logout.html, signup.html, models.Visitor, form.py, views.signup, views.log_out):  
+#### 2.Login and Registration Page (login.html, logout.html, signup.html, models.Visitor, form.py, views.signup, views.log_out):  
 Login and Registration system support users to create personal account, which allows them to use more function.(Especially, give them rights to edit the database). Every account should consist of a username and a password, and the form can be seen in the form.py file. The login and registration is basing on the source tool in Django.  
-#### 3.Date and Position Search   
-(date_search.html, date_result.html, position_search.html, position_result.html, views.position_search, views. position_result, views.date_search, views.date_result):  
+#### 3.Date and Position Search (date_search.html, date_result.html, position_search.html, position_result.html, views.position_search, views. position_result, views.date_search, views.date_result):  
 Date search page shows every date from 01/01/2015 to 31/03/2015, and each date is a URL link as a search condition to date result page, while position search page shows every recorded address in the data base, and each address can be a condition for searching. Once there are contents in this date, the result page will post all matching data, or it will tell the users no data matches.  
-#### 4.Accurate Coordinates Search  
- (coordinates_search.html, views.coordinates_search):  
+#### 4.Accurate Coordinates Search (coordinates_search.html, views.coordinates_search):  
 In this page, users are asked to enter a couple of floating number, longitude and latitude. Then the system will feedback the result matching the coordinates. The more digits means more accurate result, as well as less result (because more accurate).  
 #### 5.Data Edit Page (data_edit.html, views.data_edit):  
 This function is only used after login. It allows users to search a certain row of data by entering the row id, and users can make differences on any data as they want. If users make changes on a data row with existing row id, then the existing values will be changed if the inputs are not empty. If users enter a not existing row id, then the system will generate a new row data instead. It also allows users to delete certain rows.  
